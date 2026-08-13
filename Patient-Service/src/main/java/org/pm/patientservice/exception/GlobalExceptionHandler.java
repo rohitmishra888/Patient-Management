@@ -2,12 +2,12 @@ package org.pm.patientservice.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,10 +28,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EmailAlreadyExistsException.class)
     public ResponseEntity<Map<String,String>> handleEmailAlreadyExistsException(EmailAlreadyExistsException ex) {
 
-        log.warn("Email address already exists {}",ex.getMessage());
+        log.warn("Email address already exists {}", ex.getMessage());
         Map<String,String> errors = new HashMap<>();
         errors.put("message","Email already exists");
-        return ResponseEntity.badRequest().body(errors);
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(errors);
     }
 
     @ExceptionHandler(PatientNotFoundException.class)
@@ -40,6 +40,6 @@ public class GlobalExceptionHandler {
         log.warn("Patient not found {}", ex.getMessage());
         Map<String,String> errors = new HashMap<>();
         errors.put("message","Patient not found");
-        return ResponseEntity.badRequest().body(errors);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errors);
     }
 }
