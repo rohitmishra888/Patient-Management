@@ -6,6 +6,7 @@ public class PatientResponseDto {
     private String email;
     private String address;
     private String dateOfBirth;
+    private String registeredDate;
 
     public String getId() {
         return id;
@@ -47,5 +48,11 @@ public class PatientResponseDto {
         this.address = address;
     }
 
+    public String getRegisteredDate() {
+        return registeredDate;
+    }
 
+    public void setRegisteredDate(String registeredDate) {
+        this.registeredDate = registeredDate;
+    }
 }
