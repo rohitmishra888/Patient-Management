@@ -155,3 +155,9 @@ See [`.env.example`](.env.example) for all configurable variables.
 ## 📝 License
 
 This project is for educational purposes.
+
+
+## ?? Test Request Files
+
+HTTP request test files are in the `api-requests/` directory.
+gRPC test request files are in the `grpc-requests/` directory.
