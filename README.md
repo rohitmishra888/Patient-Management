@@ -161,3 +161,11 @@ This project is for educational purposes.
 
 HTTP request test files are in the `api-requests/` directory.
 gRPC test request files are in the `grpc-requests/` directory.
+
+
+## ?? Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
